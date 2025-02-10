@@ -25,7 +25,6 @@ def get_random_meme():
 
 # Function to overlay text on meme
 def generate_meme(image_url, top_text, bottom_text):
-    """Generate a meme with text"""
     response = requests.get(image_url)
     img = Image.open(io.BytesIO(response.content))
 
@@ -89,4 +88,4 @@ def index():
     return render_template("index.html", meme_url=meme_url)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)
